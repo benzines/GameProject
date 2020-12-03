@@ -5,8 +5,8 @@ ConsoleWrite("Test file for Telegram UDF (https://github.com/xLinkOut/telegram-u
              "This file need a valid ChatID of a Telegram user who has already sent at least a message to the bot, and a valid token given by @BotFather." & @CRLF & _
              "Insert this data in the source code." & @CRLF & @CRLF)
 
-Local $ChatID = '' ;Your ChatID here (take this from @MyTelegramID_bot)
-Local $Token  = '' ;Token here
+Local $ChatID = '@KitsbenzBot' ;Your ChatID here (take this from @MyTelegramID_bot)
+Local $Token  = '1210716232:AAGJUndF2wSwxUpNeSKoFVHbpmgLtr3bxBE' ;Token here
 
 If(($ChatID = '') or ($Token = '')) Then
     ConsoleWrite("Warning! ChatID or Token not specified!")

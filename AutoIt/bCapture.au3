@@ -9,6 +9,7 @@ _InitBot($Token)
 
 While 1
     $msgData = _Polling()
+	ConsoleWrite("Chat ID " & $msgData[2] & @CRLF)	
     ;ConsoleWrite("Incoming message from " & $msgData[3] & ": " & $msgData[5] & @CRLF)
 	If $msgData[5] == "cap" Then
 		
