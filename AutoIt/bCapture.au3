@@ -16,9 +16,29 @@ While 1
 		;ConsoleWrite("Incoming message from " & $msgData[3] & ": " & $msgData[5] & @CRLF)
 		;_SendMsg($msgData[2],$msgData[5])
 		
-		$picnum = 0
-		_ScreenCapture_Capture("D:\SnapClick\ScreenCapture\" & $picnum + 1 & ".jpg")
-		_SendPhoto($msgData[2],"D:\SnapClick\ScreenCapture\1.jpg")
+		
+		;cs
+		;get windows id
+		$titleName = "CabalM_1"
+		;$titleName = "ns.benz1"
+		Local $gameHD = WinGetHandle($titleName)
+		if @error Then
+			_SendMsg($msgData[2],"Title Not Match")
+		Else 
+			;activate windows
+			If $gameHD Then WinActivate($gameHD)
+
+			;capture & save image
+			;_ScreenCapture_CaptureWnd(@MyDocumentsDir & "\GDIPlus_Image.jpg", $gameHD)
+			Local $path = @MyDocumentsDir & "\" & $titleName & ".jpg"
+			_ScreenCapture_CaptureWnd($path , $gameHD)
+			_SendPhoto($msgData[2], $path)
+			;ce
+			
+			;$picnum = 0
+			;_ScreenCapture_Capture("D:\SnapClick\ScreenCapture\" & $picnum + 1 & ".jpg")
+			;_SendPhoto($msgData[2],"D:\SnapClick\ScreenCapture\1.jpg")
+		EndIf
 		
 	Endif
 	
