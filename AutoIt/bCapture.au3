@@ -4,6 +4,22 @@
 
 HotKeySet("{END}","_Exit") ;Press 'END' on your keyboard to force-exit the script
 
+;GetAllTitleLDPlayer+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Dim $array[1]
+$iCounter = 1
+While 1
+	If Not WinExists ( "[CLASS:LDPlayerMainFrame; INSTANCE:" & $iCounter & "]" ) Then ExitLoop
+	ReDim $array[$iCounter]
+	$array[$iCounter-1] = WinGetTitle ( "[CLASS:LDPlayerMainFrame; INSTANCE:" & $iCounter & "]" )
+	$iCounter += 1
+WEnd
+;_ArrayDisplay ( $array )
+For $i = 0 to UBound($array) -1
+	ConsoleWrite($i & @LF)
+	ConsoleWrite('LDPlayer Title ' & $array[$i] & @LF)
+Next
+Exit
+;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 $Token = "1210716232:AAGJUndF2wSwxUpNeSKoFVHbpmgLtr3bxBE" ;Token here
 _InitBot($Token)
